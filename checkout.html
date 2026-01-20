@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - ShopHub</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="bi bi-shop"></i> ShopHub
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cart.html">
+              <i class="bi bi-cart"></i> Cart
+              <span id="cart-badge" class="badge bg-primary cart-badge">0</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="auth.html">Account</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-warning" href="admin.html">
+              <i class="bi bi-shield-check"></i> Admin
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Checkout Header -->
+  <section class="cart-header">
+    <div class="container">
+      <div class="text-center">
+        <h1 class="display-5 fw-bold mb-3">
+          <i class="bi bi-credit-card"></i> Secure Checkout
+        </h1>
+        <p class="lead mb-0">Complete your purchase securely</p>
+      </div>
+      <div class="cart-progress">
+        <div class="progress-step">
+          <div class="progress-circle">✓</div>
+          <div class="progress-label">Cart</div>
+        </div>
+        <div class="progress-step active">
+          <div class="progress-circle">2</div>
+          <div class="progress-label">Checkout</div>
+        </div>
+        <div class="progress-step">
+          <div class="progress-circle">3</div>
+          <div class="progress-label">Payment</div>
+        </div>
+        <div class="progress-step">
+          <div class="progress-circle">4</div>
+          <div class="progress-label">Complete</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Checkout Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Checkout Form -->
+        <div class="col-lg-7">
+          <div class="card border-0 shadow-lg mb-4">
+            <div class="card-body p-4">
+              <h4 class="fw-bold mb-4">
+                <i class="bi bi-person-circle"></i> Contact Information
+              </h4>
+              <form id="checkout-form">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label">First Name *</label>
+                    <input type="text" class="form-control" id="firstName" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Last Name *</label>
+                    <input type="text" class="form-control" id="lastName" required>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label">Email Address *</label>
+                    <input type="email" class="form-control" id="email" required>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label">Phone Number *</label>
+                    <input type="tel" class="form-control" id="phone" required>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="card border-0 shadow-lg mb-4">
+            <div class="card-body p-4">
+              <h4 class="fw-bold mb-4">
+                <i class="bi bi-geo-alt"></i> Shipping Address
+              </h4>
+              <div class="row g-3">
+                <div class="col-12">
+                  <label class="form-label">Street Address *</label>
+                  <input type="text" class="form-control" id="address" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">City *</label>
+                  <input type="text" class="form-control" id="city" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">State/Province *</label>
+                  <input type="text" class="form-control" id="state" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">ZIP/Postal Code *</label>
+                  <input type="text" class="form-control" id="zip" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Country *</label>
+                  <select class="form-control" id="country" required>
+                    <option value="">Select Country</option>
+                    <option value="US">United States</option>
+                    <option value="CA">Canada</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="AU">Australia</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card border-0 shadow-lg">
+            <div class="card-body p-4">
+              <h4 class="fw-bold mb-4">
+                <i class="bi bi-credit-card-2-front"></i> Payment Method
+              </h4>
+              <div class="payment-methods mb-4">
+                <div class="form-check payment-option">
+                  <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" value="credit" checked>
+                  <label class="form-check-label" for="creditCard">
+                    <i class="bi bi-credit-card"></i> Credit/Debit Card
+                  </label>
+                </div>
+                <div class="form-check payment-option">
+                  <input class="form-check-input" type="radio" name="paymentMethod" id="paypal" value="paypal">
+                  <label class="form-check-label" for="paypal">
+                    <i class="bi bi-paypal"></i> PayPal
+                  </label>
+                </div>
+              </div>
+
+              <div id="card-details">
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label class="form-label">Card Number *</label>
+                    <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Expiry Date *</label>
+                    <input type="text" class="form-control" id="expiry" placeholder="MM/YY" maxlength="5">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">CVV *</label>
+                    <input type="text" class="form-control" id="cvv" placeholder="123" maxlength="3">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="col-lg-5">
+          <div class="card border-0 shadow-lg sticky-summary">
+            <div class="card-body p-4">
+              <h4 class="fw-bold mb-4">Order Summary</h4>
+              
+              <div id="checkout-items" class="mb-4">
+                <!-- Items will be inserted here -->
+              </div>
+
+              <hr>
+
+              <div class="d-flex justify-content-between mb-3">
+                <span class="text-muted">Subtotal:</span>
+                <span id="checkout-subtotal" class="fw-bold">$0.00</span>
+              </div>
+              <div class="d-flex justify-content-between mb-3">
+                <span class="text-muted">Shipping:</span>
+                <span class="text-success fw-bold">FREE</span>
+              </div>
+              <div class="d-flex justify-content-between mb-3">
+                <span class="text-muted">Tax (10%):</span>
+                <span id="checkout-tax" class="fw-bold">$0.00</span>
+              </div>
+              
+              <hr>
+
+              <div class="d-flex justify-content-between mb-4">
+                <span class="fw-bold fs-5">Total:</span>
+                <span id="checkout-total" class="cart-total">$0.00</span>
+              </div>
+
+              <button class="btn btn-primary w-100 btn-lg mb-3" id="place-order-btn">
+                <i class="bi bi-lock"></i> Place Order
+              </button>
+
+              <div class="text-center">
+                <small class="text-muted">
+                  <i class="bi bi-shield-check text-success"></i>
+                  Your payment information is secure
+                </small>
+              </div>
+
+              <div class="mt-4 text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/200px-Visa_Inc._logo.svg.png" alt="Visa" height="30" class="me-2">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/200px-Mastercard-logo.svg.png" alt="Mastercard" height="30" class="me-2">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/200px-PayPal.svg.png" alt="PayPal" height="30">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <h5><i class="bi bi-shop"></i> ShopHub</h5>
+          <p class="text-white-50">Your trusted destination for quality tech products and exceptional service. Shop with confidence.</p>
+          <div class="social-links mt-3">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h5>Shop</h5>
+          <a href="index.html">All Products</a>
+          <a href="index.html">New Arrivals</a>
+          <a href="index.html">Best Sellers</a>
+          <a href="index.html">Special Offers</a>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h5>Company</h5>
+          <a href="about.html">About Us</a>
+          <a href="about.html">Contact</a>
+          <a href="#">Careers</a>
+          <a href="#">Press</a>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h5>Support</h5>
+          <a href="#">Help Center</a>
+          <a href="#">Shipping Info</a>
+          <a href="#">Returns</a>
+          <a href="#">Track Order</a>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h5>Legal</h5>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+          <a href="#">Disclaimer</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="mb-0">&copy; 2026 ShopHub. All rights reserved. Made with <i class="bi bi-heart-fill text-danger"></i> by Siddique Ijaz.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Stripe JS -->
+  <script src="https://js.stripe.com/v3/"></script>
+  <!-- Animations JS -->
+  <script src="js/animations.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Admin Utils JS -->
+  <script src="js/admin-utils.js"></script>
+  <!-- Cart JS -->
+  <script src="js/cart.js"></script>
+  <!-- Utils JS -->
+  <script src="js/utils.js"></script>
+  <!-- Checkout JS -->
+  <script src="js/checkout.js"></script>
+</body>
+</html>
